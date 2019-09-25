@@ -1,10 +1,12 @@
 #include <iostream>
 
-int main(){
-    // Print welcome messages to the terminal
-    std::cout << "You are a secret agent breaking into a secure server room";
-    std::cout << std::endl;
-    std::cout << "You need to enter the correct codes to continue..." << std::endl;
+void PrintIntroduction(){
+    std::cout << "You are a secret agent breaking into a secure server room\n";
+    std::cout << "You need to enter the correct codes to continue...\n\n";
+}
+
+void PlayGame(){
+    PrintIntroduction();
 
     // Declare 3 number code
     const int CodeA = 4;
@@ -19,20 +21,21 @@ int main(){
     std::cout << "The codes add-up to: " << CodeSum << std::endl;
     std::cout << "The codes multiply to give " << CodeProduct << std::endl;
 
-    int PlayerGuess;
+    // Store player guess
     int GuessA, GuessB, GuessC;
-    std::cin >> GuessA;
-    std::cin >> GuessB;
-    std::cin >> GuessC;
+    std::cin >> GuessA >> GuessB >> GuessC;
 
     int GuessSum = GuessA + GuessB + GuessC;
     int GuessProduct = GuessA + GuessB + GuessC;
 
-    if (GuessSum == CodeSum && GuessProduct == CodeSum) {
+    if (GuessSum == CodeSum && GuessProduct == CodeSum){
         std::cout << "You win!";
-    } else {
+    }else{
         std::cout << "You lose!!" ;
     }
+}
 
+int main(){
+    PlayGame();
     return 0;
 }
