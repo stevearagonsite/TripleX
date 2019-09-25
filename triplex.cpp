@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 
 void PrintIntroduction(int Difficulty){
     std::cout << "\n\nYou are a secret agent breaking into a level " << Difficulty;
@@ -8,10 +9,10 @@ void PrintIntroduction(int Difficulty){
 bool PlayGame(int Difficulty){
     PrintIntroduction(Difficulty);
 
-    // Declare 3 number code
-    const int CodeA = rand();
-    const int CodeB = rand();
-    const int CodeC = rand();
+    // Generate Code
+    const int CodeA = rand() % Difficulty + Difficulty;
+    const int CodeB = rand() % Difficulty + Difficulty;
+    const int CodeC = rand() % Difficulty + Difficulty;
 
     const int CodeSum = CodeA + CodeB + CodeC;
     const int CodeProduct = CodeA * CodeB * CodeC;
@@ -38,6 +39,8 @@ bool PlayGame(int Difficulty){
 }
 
 int main(){
+    srand(time(NULL)); // create new random sequence based on time of day
+    
     int LevelDifficulty = 1;
     int const MaxDifficulty = 5;
 
