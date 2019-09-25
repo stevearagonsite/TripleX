@@ -24,9 +24,15 @@ int main(){
     std::cin >> GuessA;
     std::cin >> GuessB;
     std::cin >> GuessC;
-    
+
     int GuessSum = GuessA + GuessB + GuessC;
     int GuessProduct = GuessA + GuessB + GuessC;
+
+    if (GuessSum == CodeSum && GuessProduct == CodeSum) {
+        std::cout << "You win!";
+    } else {
+        std::cout << "You lose!!" ;
+    }
 
     return 0;
 }
