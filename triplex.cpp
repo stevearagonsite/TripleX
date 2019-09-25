@@ -9,9 +9,9 @@ bool PlayGame(int Difficulty){
     PrintIntroduction(Difficulty);
 
     // Declare 3 number code
-    const int CodeA = 4;
-    const int CodeB = 3;
-    const int CodeC = 2;
+    const int CodeA = rand();
+    const int CodeB = rand();
+    const int CodeC = rand();
 
     const int CodeSum = CodeA + CodeB + CodeC;
     const int CodeProduct = CodeA * CodeB * CodeC;
@@ -29,18 +29,20 @@ bool PlayGame(int Difficulty){
     int GuessProduct = GuessA + GuessB + GuessC;
 
     if (GuessSum == CodeSum && GuessProduct == CodeSum){
-        std::cout << "You win!";
+        std::cout << "\n*** Well done agent! You have extracted a file! Keep going! ***";
         return true;
     }else{
-        std::cout << "You lose!!" ;
+        std::cout << "\n*** You entered the wrong code! Careful agent! Try again! ***";
         return false;
     }
 }
 
 int main(){
     int LevelDifficulty = 1;
+    int const MaxDifficulty = 5;
 
-    while (true){
+    // Loop game until all levels completed
+    while (LevelDifficulty <= MaxDifficulty){ 
         bool bLevelComplete = PlayGame(LevelDifficulty);
         std::cin.clear(); // Clears any errors
         std::cin.ignore(); // Discard the buffer
@@ -50,5 +52,6 @@ int main(){
         }
     }
     
+    std::cout << "\n*** Great work agent! You got all the files! Now get out of there! ***\n";
     return 0;
 }
